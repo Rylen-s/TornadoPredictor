@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornado Predictor</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #00796b;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #00796b;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tornado Predictor</h1>
+        <input type="number" id="cape" placeholder="CAPE (J/kg)" />
+        <input type="number" id="windShear" placeholder="Wind Shear (m/s)" />
+        <input type="number" id="humidity" placeholder="Humidity (%)" />
+        <input type="number" id="pressure" placeholder="Pressure (hpa)" />
+        <input type="number" id="temperature" placeholder="Temperature (C)" />
+        <button onclick="predictTornado()">Predict</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function predictTornado() {
+            // Collect input values
+            const cape = document.getElementById('cape').value;
+            const windShear = document.getElementById('windShear').value;
+            const humidity = document.getElementById('humidity').value;
+            const pressure = document.getElementById('pressure').value;
+            const temperature = document.getElementById('temperature').value;
+
+            // Here you would normally call your machine learning model with these inputs
+            // For the purpose of this example, we'll just use a placeholder function
+
+            // Placeholder function for ML model
+            function mockPredict(cape, windShear, humidity, pressure, temperature) {
+                // This is just a mock function. Replace this with actual ML model logic.
+                if (cape > 1000 && windShear > 10 && humidity > 50) {
+                    return 'Yes';
+                } else {
+                    return 'No';
+                }
+            }
+
+            const result = mockPredict(cape, windShear, humidity, pressure, temperature);
+            document.getElementById('result').innerText = 'Tornado: ' + result;
+        }
+    </script>
+</body>
+</html>
